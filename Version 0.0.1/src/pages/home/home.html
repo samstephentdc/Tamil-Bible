@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title> 
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="content">
+   <ion-list>
+    <ion-item-sliding *ngFor="let item of xmlItems; let catIndex = index"> 
+    <ion-item no-lines text-wrap  class="verseinfo" >
+       {{catIndex + 1 + ":"}}
+       {{ item.Verse }} 
+    </ion-item>
+    <!--<ion-item-options side ="right">
+        <button ion-button (click)="share(slidingItem)">Share</button>
+    </ion-item-options> -->    
+    </ion-item-sliding>
+    
+  </ion-list>
+  
+
+</ion-content>
+
+<ion-footer class="selection" >
+  <ion-toolbar >
+    <ion-title>TAMIL BIBLE</ion-title>
+    <ion-item class="selection" > 
+      <ion-label >Book Name</ion-label>
+      <ion-select  [(ngModel)]="bookname" interface="action-sheet" (ionChange)="inputone(bookname);" class="selectionbn" >
+        <ion-option value="0" class="actions" >ஆதியாகமம் </ion-option>
+        <ion-option value="1">யாத்திராகமம் </ion-option>
+        <ion-option value="2">லேவியராகமம்</ion-option>
+        <ion-option value="3">எண்ணாகமம் </ion-option>
+        <ion-option value="4">உபாகமம் </ion-option>
+        <ion-option value="5">யோசுவா</ion-option>
+        <ion-option value="6">நியாயாதிபதிகள் </ion-option>
+        <ion-option value="7">ரூத் </ion-option>
+        <ion-option value="8">1 சாமுவேல் </ion-option>
+        <ion-option value="9">2 சாமுவேல் </ion-option>
+        <ion-option value="10">1 இராஜாக்கள் </ion-option>
+        <ion-option value="11">2 இராஜாக்கள் </ion-option>
+        <ion-option value="12">1 நாளாகமம் </ion-option>
+        <ion-option value="13">2 நாளாகமம் </ion-option>
+        <ion-option value="14">எஸ்றா </ion-option>
+        <ion-option value="15">நெகேமியா </ion-option>
+        <ion-option value="16">எஸ்தர் </ion-option>
+        <ion-option value="17">யோபு </ion-option>
+        <ion-option value="18">சங்கீதம்</ion-option>
+        <ion-option value="19">நீதிமொழிகள்</ion-option>
+        <ion-option value="20">பிரசங்கி </ion-option>
+        <ion-option value="21">உன்னதப்பாட்டு </ion-option>
+        <ion-option value="22">ஏசாயா </ion-option>
+        <ion-option value="23">எரேமியா </ion-option>
+        <ion-option value="24">புலம்பல் </ion-option>
+        <ion-option value="25">எசேக்கியேல் </ion-option>
+        <ion-option value="26">தானியேல் </ion-option>
+        <ion-option value="27">ஓசியா </ion-option>
+        <ion-option value="28">யோவேல் </ion-option>
+        <ion-option value="29">ஆமோஸ் </ion-option>
+        <ion-option value="30">ஒபதியா </ion-option>
+        <ion-option value="31">யோனா </ion-option>
+        <ion-option value="32">மீகா </ion-option>
+        <ion-option value="33">நாகூம் </ion-option>
+        <ion-option value="34">ஆபகூக் </ion-option>
+        <ion-option value="35">செப்பனியா </ion-option>
+        <ion-option value="36">ஆகாய் </ion-option>
+        <ion-option value="37">சகரியா </ion-option>
+        <ion-option value="38">மல்கியா </ion-option>
+        <ion-option value="39">மத்தேயு</ion-option>
+        <ion-option value="40">மாற்கு</ion-option>
+        <ion-option value="41">லுூக்கா</ion-option>
+        <ion-option value="42">யோவான்</ion-option>
+        <ion-option value="43">அப்போஸ்தலருடைய நடபடிகள் </ion-option>
+        <ion-option value="44">ரோமர்</ion-option>
+        <ion-option value="45">1 கொரிந்தியர்</ion-option>
+        <ion-option value="46">2 கொரிந்தியர்</ion-option>
+        <ion-option value="47">கலாத்தியர்</ion-option>
+        <ion-option value="48">எபேசியர்</ion-option>
+        <ion-option value="49">பிலிப்பியர்</ion-option>
+        <ion-option value="50">கொலோசெயர்</ion-option>
+        <ion-option value="51">1 தெசலோனிக்கேயர்</ion-option>
+        <ion-option value="52">2 தெசலோனிக்கேயர் </ion-option>
+        <ion-option value="53">1 தீமோத்தேயு</ion-option>
+        <ion-option value="54">2 தீமோத்தேயு</ion-option>
+        <ion-option value="55">தீத்து</ion-option>
+        <ion-option value="56">பிலேமோன்</ion-option>
+        <ion-option value="57">எபிரெயர்</ion-option>
+        <ion-option value="58">யாக்கோபு</ion-option>
+        <ion-option value="59">1 பேதுரு</ion-option>
+        <ion-option value="60">2 பேதுரு</ion-option>
+        <ion-option value="61">1 யோவான்</ion-option>
+        <ion-option value="62">2 யோவான்</ion-option>
+        <ion-option value="63"> 3 யோவான்</ion-option>
+        <ion-option value="64">யூதா</ion-option>
+        <ion-option value="65">வெளிப்படுத்தின விசேஷம்</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item class="selection">
+      <ion-label>Chapter Number</ion-label>
+      <ion-select [(ngModel)]="sState" interface="action-sheet" (ionChange)="sam(sState);" class="selectionbn">
+          <ion-option [value]="sState" *ngFor="let sState of states">{{sState.name}} </ion-option>
+      </ion-select>
+      </ion-item>
+
+     
+  </ion-toolbar>
+</ion-footer>
+
